@@ -13,32 +13,32 @@
 
     <div class="mb-10 w-full">
         <h2 class="mt-16 mb-10 text-3xl text-blue-500 font-bold">Featured Posts</h2>
-            <div class="mb-16 flex flex-col justify-center items-center">
-                <div class="w-full">
-                    <div class="flex flex-wrap gap-10 justify-center">
-                        @foreach ($featuredPosts as $post)
-                            <x-posts.post-card :post="$post" class="col-span-3 md:col-span-1" />
-                        @endforeach
-                    </div>
+        <div class="mb-16 flex flex-col justify-center items-center">
+            <div class="w-full">
+                <div class="flex flex-wrap gap-10 justify-center">
+                    @foreach ($featuredPosts as $post)
+                        <x-posts.post-card :post="$post" class="col-span-3 md:col-span-1" />
+                    @endforeach
                 </div>
-                <a class="mt-10 block text-center text-lg text-white font-semibold bg-gray-800 w-32 py-2 rounded-xl"
-                    href="http://127.0.0.1:8000/blog">More Posts
-                </a>
             </div>
-            <hr>
-
-            <h2 class="mt-16 mb-10 text-3xl text-blue-500 font-bold">Latest Posts</h2>
-            <div class="mb-16 flex flex-col justify-center items-center">
-                <div class="w-full">
-                    <div class="flex flex-wrap gap-10 justify-center">
-                        @foreach ($latestPosts as $post)
-                            <x-posts.post-card :post="$post" class="col-span-3 md:col-span-1" />
-                        @endforeach
-                    </div>
-                </div>
-                <a class="mt-10 block text-center text-lg text-white font-semibold bg-gray-800 w-32 py-2 rounded-xl"
-                    href="http://127.0.0.1:8000/blog">More Posts
-                </a>
-            </div>
+            <a class="mt-10 block text-center text-lg text-white font-semibold bg-gray-800 w-32 py-2 rounded-xl"
+                href="http://127.0.0.1:8000/blog">More Posts
+            </a>
         </div>
+        <hr>
+
+        <h2 class="mt-16 mb-10 text-3xl text-blue-500 font-bold">Latest Posts</h2>
+        <div class="mb-16 flex flex-col justify-center items-center">
+            <div class="w-full">
+                <div class="flex flex-wrap gap-10 justify-center">
+                    @foreach ($latestPosts as $post)
+                        <x-posts.post-card :post="$post" class="col-span-3 md:col-span-1" />
+                    @endforeach
+                </div>
+            </div>
+            <a class="mt-10 block text-center text-lg text-white font-semibold bg-gray-800 w-32 py-2 rounded-xl"
+                href="http://127.0.0.1:8000/blog">More Posts
+            </a>
+        </div>
+    </div>
 </x-app-layout>

@@ -16,24 +16,18 @@ class PostList extends Component
 
     #[Url()]
     public $sort = 'desc';
-
-    #[Url()]
     public $search = '';
-
-    #[Url()]
     public $category = '';
 
     public function setSort($sort)
     {
         $this->sort = ($sort === 'desc') ? 'desc' : 'asc';
-        $this->resetPage();
     }
 
     #[On('search')]
     public function updateSearch($search)
     {
         $this->search = $search;
-        $this->resetPage();
     }
 
     #[Computed()]
@@ -41,9 +35,6 @@ class PostList extends Component
     {
         return Post::published()
             ->orderBy('published_at', $this->sort)
-            ->when(Category::where('slug', $this->category)->first(), function ($query) {
-                $query->withCategory($this->category);
-            })
             ->where('title', 'like', "%{$this->search}%")
             ->paginate(3);
     }
