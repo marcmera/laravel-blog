@@ -38,6 +38,11 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function scopePublished($query)
     {
         return $query->where('published_at', '<=', Carbon::now());
@@ -72,6 +77,6 @@ class Post extends Model
     {
         $isUrl = str_contains($this->image, 'http');
 
-        return ($isUrl) ? $this->image : Storage::disk('public')->url($this->image);
+        return $isUrl ? $this->image : Storage::url($this->image);
     }
 }
